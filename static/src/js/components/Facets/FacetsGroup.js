@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 
 import FacetsList from './FacetsList'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './FacetsGroup.scss'
 
@@ -90,13 +92,13 @@ class FacetsGroup extends Component {
               {
                 !isOpen
                   ? (
-                    <i className="fa fa-chevron-down">
+                    <EDSCIcon icon={FaChevronDown}>
                       <span className="visually-hidden">Open</span>
-                    </i>
+                    </EDSCIcon>
                   ) : (
-                    <i className="fa fa-chevron-up">
+                    <EDSCIcon icon={FaChevronUp}>
                       <span className="visually-hidden">Close</span>
-                    </i>
+                    </EDSCIcon>
                   )
               }
             </div>

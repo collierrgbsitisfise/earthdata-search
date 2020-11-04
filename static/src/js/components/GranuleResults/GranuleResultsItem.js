@@ -2,6 +2,9 @@ import React, { forwardRef } from 'react'
 import { PropTypes } from 'prop-types'
 import classNames from 'classnames'
 import { LinkContainer } from 'react-router-bootstrap'
+import {
+  FaPlus, FaMinus, FaInfoCircle, FaTimesCircle
+} from 'react-icons/fa'
 
 import murmurhash3 from '../../util/murmurhash3'
 import { getApplicationConfig } from '../../../../../sharedUtils/config'
@@ -13,6 +16,7 @@ import GranuleResultsDataLinksButton from './GranuleResultsDataLinksButton'
 import MoreActionsDropdown from '../MoreActionsDropdown/MoreActionsDropdown'
 import MoreActionsDropdownItem from '../MoreActionsDropdown/MoreActionsDropdownItem'
 import PortalFeatureContainer from '../../containers/PortalFeatureContainer/PortalFeatureContainer'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './GranuleResultsItem.scss'
 
@@ -190,12 +194,12 @@ const GranuleResultsItem = forwardRef(({
           >
             <MoreActionsDropdownItem
               title="View details"
-              icon="info-circle"
+              icon={FaInfoCircle}
             />
           </LinkContainer>
           <MoreActionsDropdownItem
             title="Filter granule"
-            icon="times-circle"
+            icon={FaTimesCircle}
             onClick={handleFilterClick}
           />
         </MoreActionsDropdown>
@@ -232,7 +236,7 @@ const GranuleResultsItem = forwardRef(({
                             e.stopPropagation()
                           }}
                         >
-                          <i className="fa fa-plus" />
+                          <EDSCIcon icon={FaPlus} />
                         </Button>
                       )
                       : (
@@ -250,7 +254,7 @@ const GranuleResultsItem = forwardRef(({
                             e.stopPropagation()
                           }}
                         >
-                          <i className="fa fa-minus" />
+                          <EDSCIcon icon={FaMinus} />
                         </Button>
                       )
                   }

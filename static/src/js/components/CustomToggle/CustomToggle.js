@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
+
 import './CustomToggle.scss'
 
 export const CustomToggle = React.forwardRef(({
@@ -28,10 +30,7 @@ export const CustomToggle = React.forwardRef(({
   let iconClasses
 
   if (icon) {
-    iconClasses = classNames(
-      'custom-toggle__icon',
-      icon ? `fa fa-${icon}` : null
-    )
+    iconClasses = 'custom-toggle__icon'
   }
 
   return (
@@ -42,7 +41,7 @@ export const CustomToggle = React.forwardRef(({
       title={title}
       onClick={handleClick}
     >
-      {icon && <i className={iconClasses} />}
+      {icon && <EDSCIcon icon={icon} className={iconClasses} />}
       {children}
     </button>
   )
@@ -57,7 +56,7 @@ CustomToggle.defaultProps = {
 CustomToggle.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   onClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired
 }

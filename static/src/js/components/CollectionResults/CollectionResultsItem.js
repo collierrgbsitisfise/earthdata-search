@@ -1,6 +1,16 @@
 import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { Badge, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import {
+  FaGlobe,
+  FaTags,
+  FaSlidersH,
+  FaFileAlt,
+  FaClock,
+  FaMinus,
+  FaPlus,
+  FaInfoCircle
+} from 'react-icons/fa'
 
 import { commafy } from '../../util/commafy'
 import { getApplicationConfig } from '../../../../../sharedUtils/config'
@@ -9,6 +19,7 @@ import { pluralize } from '../../util/pluralize'
 import Button from '../Button/Button'
 import SplitBadge from '../SplitBadge/SplitBadge'
 import PortalFeatureContainer from '../../containers/PortalFeatureContainer/PortalFeatureContainer'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './CollectionResultsItem.scss'
 
@@ -71,7 +82,7 @@ export const CollectionResultsItem = forwardRef(({
           </Tooltip>
         )}
       >
-        <i className="fa fa-globe collection-results-item__badge-icon" />
+        <EDSCIcon icon={FaGlobe} className="collection-results-item__badge-icon svg fa-globe-svg" />
       </OverlayTrigger>
     ))
   }
@@ -90,7 +101,7 @@ export const CollectionResultsItem = forwardRef(({
           </Tooltip>
         )}
       >
-        <i className="fa fa-tags collection-results-item__badge-icon" />
+        <EDSCIcon icon={FaTags} className="collection-results-item__badge-icon svg fa-tags-svg" />
       </OverlayTrigger>
     ))
   }
@@ -109,7 +120,7 @@ export const CollectionResultsItem = forwardRef(({
           </Tooltip>
         )}
       >
-        <i className="fa fa-sliders collection-results-item__badge-icon" />
+        <EDSCIcon icon={FaSlidersH} className="collection-results-item__badge-icon svg fa-sliders-svg" />
       </OverlayTrigger>
     ))
   }
@@ -128,7 +139,7 @@ export const CollectionResultsItem = forwardRef(({
           </Tooltip>
         )}
       >
-        <i className="fa fa-file-text-o collection-results-item__badge-icon" />
+        <EDSCIcon icon={FaFileAlt} className="collection-results-item__badge-icon svg fa-file-svg" />
       </OverlayTrigger>
     ))
   }
@@ -147,7 +158,7 @@ export const CollectionResultsItem = forwardRef(({
           </Tooltip>
         )}
       >
-        <i className="fa fa-clock-o collection-results-item__badge-icon" />
+        <EDSCIcon icon={FaClock} className="collection-results-item__badge-icon svg fa-clock-svg" />
       </OverlayTrigger>
     ))
   }
@@ -161,7 +172,7 @@ export const CollectionResultsItem = forwardRef(({
       }}
       variant="light"
       bootstrapVariant="light"
-      icon="plus"
+      icon={FaPlus}
       label="Add collection to the current project"
       title="Add collection to the current project"
     />
@@ -176,7 +187,7 @@ export const CollectionResultsItem = forwardRef(({
       }}
       variant="light"
       bootstrapVariant="light"
-      icon="minus"
+      icon={FaMinus}
       label="Remove collection from the current project"
       title="Remove collection from the current project"
     />
@@ -257,7 +268,7 @@ export const CollectionResultsItem = forwardRef(({
                 label="View collection details"
                 title="View collection details"
                 bootstrapVariant="light"
-                icon="info-circle"
+                icon={FaInfoCircle}
               />
               <PortalFeatureContainer authentication>
                 <>

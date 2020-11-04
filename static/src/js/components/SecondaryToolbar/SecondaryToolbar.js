@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import { Col, Dropdown, Form } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { parse } from 'qs'
+import {
+  FaUser, FaSave, FaArrowCircleLeft, FaLock
+} from 'react-icons/fa'
 
 import { getEnvironmentConfig } from '../../../../../sharedUtils/config'
 import { isPath } from '../../util/isPath'
@@ -14,6 +17,7 @@ import { stringify } from '../../util/url/url'
 import Button from '../Button/Button'
 import PortalFeatureContainer from '../../containers/PortalFeatureContainer/PortalFeatureContainer'
 import PortalLinkContainer from '../../containers/PortalLinkContainer/PortalLinkContainer'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './SecondaryToolbar.scss'
 
@@ -125,7 +129,7 @@ class SecondaryToolbar extends Component {
         <Button
           className="secondary-toolbar__back"
           bootstrapVariant="light"
-          icon="arrow-circle-o-left"
+          icon={FaArrowCircleLeft}
           label="Back to Search"
         >
           Back to Search
@@ -175,7 +179,7 @@ class SecondaryToolbar extends Component {
         className="secondary-toolbar__login"
         bootstrapVariant="light"
         href={`${apiHost}/login?ee=${earthdataEnvironment}&state=${encodeURIComponent(returnPath)}`}
-        icon="lock"
+        icon={FaLock}
         label="Login"
       >
         Earthdata Login
@@ -188,7 +192,7 @@ class SecondaryToolbar extends Component {
           className="secondary-toolbar__user-dropdown-toggle"
           variant="light"
         >
-          <i className="fa fa-user" />
+          <EDSCIcon icon={FaUser} />
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <LinkContainer
@@ -252,7 +256,7 @@ class SecondaryToolbar extends Component {
           variant="light"
           onClick={this.onToggleProjectDropdown}
         >
-          <i className="fa fa-floppy-o" />
+          <EDSCIcon icon={FaSave} />
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Form inline className="flex-nowrap">

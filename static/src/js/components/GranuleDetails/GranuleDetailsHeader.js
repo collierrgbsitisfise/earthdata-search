@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { FaMap } from 'react-icons/fa'
 
 import { granuleTitle } from './skeleton'
 
 import PortalLinkContainer from '../../containers/PortalLinkContainer/PortalLinkContainer'
 import Skeleton from '../Skeleton/Skeleton'
 import { locationPropType } from '../../util/propTypes/location'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './GranuleDetailsHeader.scss'
 
@@ -31,13 +33,13 @@ const GranuleDetailsHeader = ({ granuleMetadata, location }) => {
                     <>
                       <h2 className="granule-details-header__title">{title}</h2>
                       <PortalLinkContainer
-                        className="collection-details-header__title-link"
+                        className="collection-details-header__title-link collection-details-header__title-link-icon"
                         to={{
                           pathname: '/search/granules',
                           search: location.search
                         }}
                       >
-                        <i className="fa fa-map" />
+                        <EDSCIcon icon={FaMap} />
                         {' View Granules'}
                       </PortalLinkContainer>
                     </>

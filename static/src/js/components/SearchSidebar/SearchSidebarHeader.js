@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { FaChevronLeft } from 'react-icons/fa'
 
 import { locationPropType } from '../../util/propTypes/location'
 
 import SearchFormContainer from '../../containers/SearchFormContainer/SearchFormContainer'
 import PortalLinkContainer from '../../containers/PortalLinkContainer/PortalLinkContainer'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './SearchSidebarHeader.scss'
 
@@ -39,7 +41,7 @@ export class SearchSidebarHeader extends PureComponent {
             }}
             onClick={() => onFocusedCollectionChange('')}
           >
-            <i className="fa fa-chevron-left" />
+            <EDSCIcon icon={FaChevronLeft} />
             {' Back to collections'}
           </PortalLinkContainer>
         </div>

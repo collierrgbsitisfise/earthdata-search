@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { FaChevronCircleRight } from 'react-icons/fa'
 
 import OrderStatusList from './OrderStatusList'
 import Well from '../Well/Well'
@@ -9,6 +10,7 @@ import Skeleton from '../Skeleton/Skeleton'
 import { orderStatusSkeleton, orderStatusLinksSkeleton } from './skeleton'
 import { portalPath } from '../../../../../sharedUtils/portalPath'
 import { getEnvironmentConfig } from '../../../../../sharedUtils/config'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './OrderStatus.scss'
 
@@ -191,7 +193,7 @@ export class OrderStatus extends Component {
             <Well.Heading>Next Steps</Well.Heading>
             <ul className="order-status__footer-link-list">
               <li className="order-status__footer-link-item">
-                <i className="fa fa-chevron-circle-right order-status__footer-link-icon" />
+                <EDSCIcon icon={FaChevronCircleRight} className="order-status__footer-link-icon" />
                 <PortalLinkContainer
                   className="order-status__footer-link"
                   to={{
@@ -204,7 +206,7 @@ export class OrderStatus extends Component {
                 </PortalLinkContainer>
               </li>
               <li className="order-status__footer-link-item">
-                <i className="fa fa-chevron-circle-right order-status__footer-link-icon" />
+                <EDSCIcon icon={FaChevronCircleRight} className="order-status__footer-link-icon" />
                 <PortalLinkContainer
                   className="order-status__footer-link"
                   to={{
@@ -216,7 +218,7 @@ export class OrderStatus extends Component {
                 </PortalLinkContainer>
               </li>
               <li className="order-status__footer-link-item">
-                <i className="fa fa-chevron-circle-right order-status__footer-link-icon" />
+                <EDSCIcon icon={FaChevronCircleRight} className="order-status__footer-link-icon" />
                 <a className="order-status__footer-link" href={`${portalPath(portal)}/downloads`}>View Your Download Status & History</a>
               </li>
             </ul>

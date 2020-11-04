@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Alert } from 'react-bootstrap'
 
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
+
 import './EDSCAlert.scss'
 
 export const EDSCAlert = ({
@@ -25,7 +27,7 @@ export const EDSCAlert = ({
     >
       {
         icon && (
-          <i className={`fa fa-${icon} edsc-alert__icon`} />
+          <EDSCIcon icon={icon} className="edsc-alert__icon" />
         )
       }
       <div className="edsc-alert__contents">
@@ -44,7 +46,7 @@ EDSCAlert.defaultProps = {
 EDSCAlert.propTypes = {
   bootstrapVariant: PropTypes.string.isRequired,
   children: PropTypes.node,
-  icon: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   variant: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.bool

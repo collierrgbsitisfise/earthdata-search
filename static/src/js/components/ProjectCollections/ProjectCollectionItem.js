@@ -2,6 +2,9 @@ import React from 'react'
 import { PropTypes } from 'prop-types'
 import classNames from 'classnames'
 import abbreviate from 'number-abbreviate'
+import {
+  FaExclamationCircle, FaTimesCircle, FaInfoCircle, FaMap, FaCog
+} from 'react-icons/fa'
 
 import {
   projectCollectionItemHeader,
@@ -16,6 +19,7 @@ import MoreActionsDropdown from '../MoreActionsDropdown/MoreActionsDropdown'
 import MoreActionsDropdownItem from '../MoreActionsDropdown/MoreActionsDropdownItem'
 import Button from '../Button/Button'
 import Skeleton from '../Skeleton/Skeleton'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './ProjectCollectionItem.scss'
 
@@ -119,7 +123,7 @@ const ProjectCollectionItem = ({
               <MoreActionsDropdown handoffLinks={handoffLinks} alignRight>
                 <MoreActionsDropdownItem
                   className="project-collections-item__more-actions-item project-collections-item__more-actions-remove"
-                  icon="times-circle"
+                  icon={FaTimesCircle}
                   title="Remove"
                   onClick={() => {
                     onRemoveCollectionFromProject(collectionId)
@@ -140,19 +144,19 @@ const ProjectCollectionItem = ({
                 />
                 <MoreActionsDropdownItem
                   className="project-collections-item__more-actions-item project-collections-item__more-actions-collection-details"
-                  icon="info-circle"
+                  icon={FaInfoCircle}
                   title="Collection Details"
                   onClick={() => onViewCollectionDetails(collectionId)}
                 />
                 <MoreActionsDropdownItem
                   className="project-collections-item__more-actions-item project-collections-item__more-actions-granules"
-                  icon="map"
+                  icon={FaMap}
                   title="View Granules"
                   onClick={() => onViewCollectionGranules(collectionId)}
                 />
                 <MoreActionsDropdownItem
                   className="project-collections-item__more-actions-item project-collections-item__more-actions-vis"
-                  icon={isVisible ? 'eye-slash' : 'eye'}
+                  icon={isVisible ? 'FaEyeSlash' : 'FaEye'}
                   title="Toggle Visibility"
                   onClick={handleToggleCollectionVisibility}
                 />
@@ -188,7 +192,7 @@ const ProjectCollectionItem = ({
               {
                 !isValid && (
                   <span className="project-collections-item__status project-collections-item__status--invalid">
-                    <i className="fa fa-exclamation-circle" />
+                    <EDSCIcon icon={FaExclamationCircle} />
                   </span>
                 )
               }
@@ -196,7 +200,7 @@ const ProjectCollectionItem = ({
                 className="project-collections-item__more-options-button"
                 variant="link"
                 bootstrapVariant="link"
-                icon="cog"
+                icon={FaCog}
                 label="Edit options"
                 onClick={() => {
                   onUpdateFocusedCollection(conceptId)

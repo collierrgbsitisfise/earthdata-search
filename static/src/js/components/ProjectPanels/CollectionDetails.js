@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { difference } from 'lodash'
 import classNames from 'classnames'
+import { FaInfoCircle, FaMinus } from 'react-icons/fa'
 
 import { eventEmitter } from '../../events/events'
 import { portalPath } from '../../../../../sharedUtils/portalPath'
@@ -9,6 +10,7 @@ import { locationPropType } from '../../util/propTypes/location'
 
 import PortalLinkContainer from '../../containers/PortalLinkContainer/PortalLinkContainer'
 import Button from '../Button/Button'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './CollectionDetails.scss'
 
@@ -119,7 +121,7 @@ export const CollectionDetails = ({
                           search: location.search
                         }}
                       >
-                        <i className="fa fa-info-circle" />
+                        <EDSCIcon icon={FaInfoCircle} />
                       </PortalLinkContainer>
                       <Button
                         className="collection-details__item-action collection-details__item-action--remove"
@@ -134,7 +136,7 @@ export const CollectionDetails = ({
                           e.stopPropagation()
                         }}
                       >
-                        <i className="fa fa-minus" />
+                        <EDSCIcon icon={FaMinus} />
                       </Button>
                     </span>
                   </div>

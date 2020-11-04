@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { LinkContainer } from 'react-router-bootstrap'
+import {
+  FaPlus, FaMinus, FaInfoCircle, FaTimesCircle
+} from 'react-icons/fa'
 
 import murmurhash3 from '../../util/murmurhash3'
 import { portalPath } from '../../../../../sharedUtils/portalPath'
@@ -10,6 +13,7 @@ import Button from '../Button/Button'
 import MoreActionsDropdown from '../MoreActionsDropdown/MoreActionsDropdown'
 import MoreActionsDropdownItem from '../MoreActionsDropdown/MoreActionsDropdownItem'
 import PortalFeatureContainer from '../../containers/PortalFeatureContainer/PortalFeatureContainer'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 const GranuleResultsTableHeaderCell = (props) => {
   const { column, cell, row } = props
@@ -78,7 +82,7 @@ const GranuleResultsTableHeaderCell = (props) => {
                       e.stopPropagation()
                     }}
                   >
-                    <i className="fa fa-plus" />
+                    <EDSCIcon icon={FaPlus} />
                   </Button>
                 )
                 : (
@@ -97,7 +101,7 @@ const GranuleResultsTableHeaderCell = (props) => {
                       e.stopPropagation()
                     }}
                   >
-                    <i className="fa fa-minus" />
+                    <EDSCIcon icon={FaMinus} />
                   </Button>
                 )
             }
@@ -127,12 +131,12 @@ const GranuleResultsTableHeaderCell = (props) => {
           >
             <MoreActionsDropdownItem
               title="View details"
-              icon="info-circle"
+              icon={FaInfoCircle}
             />
           </LinkContainer>
           <MoreActionsDropdownItem
             title="Filter granule"
-            icon="times-circle"
+            icon={FaTimesCircle}
             onClick={(e) => {
               handleFilterClick(id)
               e.stopPropagation()

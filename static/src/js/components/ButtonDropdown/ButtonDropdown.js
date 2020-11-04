@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import Dropdown from 'react-bootstrap/Dropdown'
+import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 
 import ButtonToggle from '../CustomToggle/ButtonToggle'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './ButtonDropdown.scss'
 
@@ -75,8 +77,8 @@ export default class ButtonDropdown extends PureComponent {
           &nbsp;
           {
             open
-              ? <i className="fa fa-chevron-up" />
-              : <i className="fa fa-chevron-down" />
+              ? <EDSCIcon icon={FaChevronUp} />
+              : <EDSCIcon icon={FaChevronDown} />
           }
         </Dropdown.Toggle>
         <Dropdown.Menu className="button-dropdown__menu">

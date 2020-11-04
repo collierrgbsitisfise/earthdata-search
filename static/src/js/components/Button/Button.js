@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap'
 
 import Spinner from '../Spinner/Spinner'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './Button.scss'
 
@@ -43,25 +44,19 @@ export const Button = React.forwardRef(({
       [`button--${variant}`]: !!variant,
       'button--icon': !!icon,
       'button--icon-only': !!icon && children === null,
-      'button--badge': !!badge
+      'button--badge': !!badge,
+      'button--icon__svg': icon && typeof icon !== 'string'
     },
     className
   )
 
   let iconClasses
 
-  const buildIconClass = (icon) => {
-    if (icon.indexOf('edsc') > -1) {
-      return icon
-    }
-    return `fa fa-${icon}`
-  }
-
   if (icon) {
     iconClasses = classNames(
       'button__icon',
       children ? 'button__icon--push' : null,
-      icon ? buildIconClass(icon) : null
+      typeof icon === 'string' && icon.includes('edsc') ? icon : null
     )
   }
 
@@ -103,7 +98,7 @@ export const Button = React.forwardRef(({
       style={style}
       data-test-id={dataTestId}
     >
-      {(!spinner && icon) && <i className={iconClasses} />}
+      {(!spinner && icon) && <EDSCIcon icon={icon} className={iconClasses} />}
       <span className="button__contents">
         { spinner
           ? (
@@ -177,7 +172,7 @@ Button.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   href: PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   overlayClass: PropTypes.string,

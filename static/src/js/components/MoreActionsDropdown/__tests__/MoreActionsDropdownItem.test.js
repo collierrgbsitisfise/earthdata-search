@@ -2,14 +2,17 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import { Dropdown } from 'react-bootstrap'
+import { FaGlobal } from 'react-icons'
+
 import { MoreActionsDropdownItem } from '../MoreActionsDropdownItem'
+import EDSCIcon from '../../EDSCIcon/EDSCIcon'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 function setup(overrideProps) {
   const props = {
     className: 'test-class',
-    icon: 'test-icon',
+    icon: 'FaGlobal',
     onClick: jest.fn(),
     title: 'Test Title',
     ...overrideProps
@@ -39,7 +42,7 @@ describe('MoreActionsDropdownItem component', () => {
   test('adds an icon', () => {
     const { enzymeWrapper } = setup()
 
-    expect(enzymeWrapper.find('.fa-test-icon').type()).toBe('i')
+    expect(enzymeWrapper.find('EDSCIcon').type()).toBe(EDSCIcon)
   })
 
   test('displays the text', () => {

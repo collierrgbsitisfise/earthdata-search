@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { FaEllipsisV } from 'react-icons/fa'
 
 import CustomToggle from './CustomToggle'
 
@@ -22,7 +23,7 @@ export const MoreActionsToggle = React.forwardRef(({
       onClick={onClick}
       ref={ref}
       title="More actions"
-      icon="ellipsis-v"
+      icon={FaEllipsisV}
     />
   )
 })

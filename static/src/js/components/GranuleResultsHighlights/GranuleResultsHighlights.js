@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { FaMap } from 'react-icons/fa'
 
 import { commafy } from '../../util/commafy'
 import { granuleListItem, granuleListTotal } from './skeleton'
@@ -8,6 +9,7 @@ import { locationPropType } from '../../util/propTypes/location'
 
 import PortalLinkContainer from '../../containers/PortalLinkContainer/PortalLinkContainer'
 import Skeleton from '../Skeleton/Skeleton'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './GranuleResultsHighlights.scss'
 
@@ -114,13 +116,13 @@ export const GranuleResultsHighlights = ({
     </ul>
     <div className="granule-results-highlights__footer">
       <PortalLinkContainer
-        className="granule-results-header__title-link"
+        className="granule-results-header__title-link granule-results-header__title-link-icon"
         to={{
           pathname: '/search/granules',
           search: location.search
         }}
       >
-        <i className="fa fa-map" />
+        <EDSCIcon icon={FaMap} />
         {' View Granules'}
       </PortalLinkContainer>
     </div>

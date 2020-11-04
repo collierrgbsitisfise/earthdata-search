@@ -1,6 +1,8 @@
 import React from 'react'
 import Enzyme, { mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
+
 import ButtonDropdown from '../ButtonDropdown'
 
 Enzyme.configure({ adapter: new Adapter() })
@@ -11,10 +13,6 @@ function setup(type) {
     buttonLabel: 'Test Label',
     buttonContent: 'Test Button Content',
     className: 'some-test-classname'
-  }
-
-  if (type === 'icon') {
-    props.icon = 'test'
   }
 
   if (type === 'badge') {
@@ -63,8 +61,7 @@ describe('ButtonDropdown component', () => {
   describe('icon', () => {
     test('displays correctly by default', () => {
       const { enzymeWrapper } = setup()
-      expect(enzymeWrapper.find('.fa-chevron-down').length).toEqual(1)
-      expect(enzymeWrapper.find('.fa-chevron-up').length).toEqual(0)
+      expect(enzymeWrapper.find('EDSCIcon').props().icon).toEqual(FaChevronDown)
     })
 
     test('displays correctly when opened', () => {
@@ -73,8 +70,7 @@ describe('ButtonDropdown component', () => {
       enzymeWrapper.instance().onDropdownToggle()
       enzymeWrapper.update()
 
-      expect(enzymeWrapper.find('.fa-chevron-up').length).toEqual(1)
-      expect(enzymeWrapper.find('.fa-chevron-down').length).toEqual(0)
+      expect(enzymeWrapper.find('EDSCIcon').props().icon).toEqual(FaChevronUp)
     })
   })
 })

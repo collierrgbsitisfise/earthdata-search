@@ -1,6 +1,7 @@
 import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
+import { FaGlobe } from 'react-icons/fa'
 
 import CustomToggle from '../CustomToggle'
 
@@ -14,7 +15,7 @@ function setup(type) {
   }
 
   if (type === 'icon') {
-    props.icon = 'test-icon'
+    props.icon = FaGlobe
   }
 
   const enzymeWrapper = shallow(<CustomToggle {...props}>Test</CustomToggle>)
@@ -57,12 +58,12 @@ describe('CustomToggle component', () => {
   test('should render self with an icon', () => {
     const { enzymeWrapper } = setup('icon')
 
-    expect(enzymeWrapper.find('i').hasClass('fa fa-test-icon'))
+    expect(enzymeWrapper.find('EDSCIcon').props().icon).toEqual(FaGlobe)
   })
 
   test('should render self without an icon', () => {
     const { enzymeWrapper } = setup('no-icon')
 
-    expect(enzymeWrapper.find('i').length).toEqual(0)
+    expect(enzymeWrapper.find('EDSCIcon').length).toEqual(0)
   })
 })

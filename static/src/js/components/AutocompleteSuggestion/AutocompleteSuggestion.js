@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { isEmpty, startCase } from 'lodash'
+import { FaChevronRight } from 'react-icons/fa'
+
 import { buildHierarchy, buildHierarchicalAutocompleteTitle } from '../../util/autocompleteResults'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './AutocompleteSuggestion.scss'
 
@@ -28,7 +31,7 @@ const AutocompleteSuggestion = ({ suggestion }) => {
                   hierarchy.map(parent => (
                     <React.Fragment key={`${value}-${parent}`}>
                       {parent}
-                      <i className="fa fa-chevron-right" />
+                      <EDSCIcon icon={FaChevronRight} />
                       {' '}
                     </React.Fragment>
                   ))

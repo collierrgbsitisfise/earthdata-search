@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Collapse } from 'react-bootstrap'
 import $ from 'jquery'
+import { FaChevronCircleUp, FaChevronCircleDown } from 'react-icons/fa'
 
 import scrollParent from '../../util/scrollParent'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './CollapsePanel.scss'
 
@@ -48,7 +50,9 @@ export class CollapsePanel extends Component {
     const buttonClassNames = `collapse-panel__button ${buttonClassName}`
     const panelClassNames = `collapse-panel__panel ${panelClassName}`
 
-    const icon = <i className={`fa fa-chevron-${open ? 'up' : 'down'}`} />
+    const icon = open
+      ? <EDSCIcon icon={FaChevronCircleUp} />
+      : <EDSCIcon icon={FaChevronCircleDown} />
 
     return (
       <div className={classNames}>

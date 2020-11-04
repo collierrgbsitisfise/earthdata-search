@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Badge } from 'react-bootstrap'
+import { FaMap } from 'react-icons/fa'
 
 import Skeleton from '../Skeleton/Skeleton'
 import { MoreActionsDropdown } from '../MoreActionsDropdown/MoreActionsDropdown'
@@ -9,6 +10,7 @@ import { collectionTitleSkeleton } from './skeleton'
 import generateHandoffs from '../../util/handoffs/generateHandoffs'
 import PortalLinkContainer from '../../containers/PortalLinkContainer/PortalLinkContainer'
 import { locationPropType } from '../../util/propTypes/location'
+import EDSCIcon from '../EDSCIcon/EDSCIcon'
 
 import './CollectionDetailsHeader.scss'
 
@@ -57,13 +59,13 @@ export const CollectionDetailsHeader = ({
                   <>
                     <h2 className="collection-details-header__title">{title}</h2>
                     <PortalLinkContainer
-                      className="collection-details-header__title-link"
+                      className="collection-details-header__title-link collection-details-header__title-link-icon"
                       to={{
                         pathname: '/search/granules',
                         search: location.search
                       }}
                     >
-                      <i className="fa fa-map" />
+                      <EDSCIcon icon={FaMap} />
                       {' View Granules'}
                     </PortalLinkContainer>
                     <div className="mt-1">
